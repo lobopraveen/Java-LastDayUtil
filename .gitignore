@@ -1,7 +1,5 @@
 bin/
 gradle/
-gradlew
-gradlew.bat
 build/
 .classpath
 .gradle/
