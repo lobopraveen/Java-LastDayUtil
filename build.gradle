@@ -1,10 +1,13 @@
 apply plugin: 'java'
 
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
     testImplementation 'junit:junit:4.12'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.3' //we want gradle 2.10 to run this project
 }
