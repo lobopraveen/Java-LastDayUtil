@@ -1,0 +1,23 @@
+image: java:latest
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  script:
+    - ./gradlew clean assemble
+    - ./gradlew javadoc
+  artifacts:
+    paths:
+      - build/docs/javadoc
+
+test:
+  stage: test
+  script:
+    - ./gradlew clean test
+  artifacts:
+    paths:
+     - build/reports/tests/test/
+    expire_in: 1 week
