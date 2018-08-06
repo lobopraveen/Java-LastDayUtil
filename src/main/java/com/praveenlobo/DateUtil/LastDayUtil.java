@@ -28,7 +28,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 /**
  * The LastDayUtil classes provide a number of utilities that are not directly
@@ -54,7 +53,7 @@ public class LastDayUtil {
 	 * @see #lastDayOfMonth(String, String, int)
 	 */
 	public final static Date lastDayOfMonth(Date date) {
-		Calendar cal = new GregorianCalendar();
+		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
 		// set calendar to the last day of the month
 		cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
@@ -103,7 +102,7 @@ public class LastDayUtil {
 	 * @see #lastDayOfMonth(String, String, int)
 	 */
 	public final static Date lastWeekDayOfMonth(Date date) {
-		Calendar cal = new GregorianCalendar();
+		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
 		// set calendar to the last day of the month
 		cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
@@ -165,7 +164,7 @@ public class LastDayUtil {
 	 * @see #lastDayOfMonth(String, String, int)
 	 */
 	public final static Date lastDayOfMonth(Date date, int day) {
-		Calendar cal = new GregorianCalendar();
+		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
 		// set calendar to the first day of the next month
 		cal.set(Calendar.DAY_OF_MONTH, 1);
