@@ -3,7 +3,7 @@ image: java:latest
 stages:
   - build
   - test
-  - artifact_page
+  - project_page
 
 build:
   stage: build
