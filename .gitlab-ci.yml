@@ -3,6 +3,7 @@ image: java:latest
 stages:
   - build
   - test
+  - artifact_page
 
 build:
   stage: build
@@ -12,6 +13,7 @@ build:
   artifacts:
     paths:
       - build/docs/javadoc
+    expire_in: 1 week
 
 test:
   stage: test
@@ -21,3 +23,15 @@ test:
     paths:
      - build/reports/tests/test/
     expire_in: 1 week
+
+pages:
+  stage: project_page
+  script:
+    - ./gradlew clean test javadoc
+    - cp -r build/docs/javadoc public/javadoc
+    - cp -r build/reports/tests/test/ public/test
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
